@@ -27,7 +27,10 @@ const ViewCourse = () => {
   const [loading, setLoading] = useState(false);
 
   const { userData } = useSelector((state) => state.user);
-  const serverUrl = "https://online-lms-xnob.onrender.com";
+  const serverUrl = "http://localhost:8000";
+
+
+  
   useEffect(() => {
     const handlecreator = async () => {
       if (selectedCourse?.creater) {
@@ -108,57 +111,72 @@ const ViewCourse = () => {
 
 const handleEnroll = async (courseId) => {
   try {
-    const orderData = await axios.post(
-      serverUrl + "/api/order/razorpay-order",
+    const res = await axios.post(
+      "http://localhost:8000/api/order/razorpay-order",
       { courseId },
       { withCredentials: true }
     );
 
+    const order = res.data.order;
+
+    if (!window.Razorpay) {
+      alert("Razorpay SDK not loaded");
+      return;
+    }
+
     const options = {
       key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-      amount: orderData.data.order.amount,
+      amount: order.amount,
       currency: "INR",
-      name: "vIRTUAL COURSES",
-      description: "COURSE ENROLLEMENT PAYMENT",
-      order_id: orderData.data.order.id,
+      name: "Online LMS",
+      description: "Course Payment",
+      order_id: order.id,
 
-      handler: async function (response) {
+      handler: async (response) => {
         try {
-          const verifyPayment = await axios.post(
-            serverUrl + "/api/order/verifyPayment",
+          await axios.post(
+            "http://localhost:8000/api/order/verifyPayment",
             {
-              ...response,
-              courseId,
+              courseId: courseId,
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
             },
             { withCredentials: true }
           );
 
           setIsEnrolled(true);
 
-          const updatedUser = await axios.get(
-            serverUrl + "/api/user/getcurrentuser",
+          const userRes = await axios.get(
+            "http://localhost:8000/api/user/getcurrentuser",
             { withCredentials: true }
           );
 
-          dispatch(setUserData(updatedUser.data));
+          dispatch(setUserData(userRes.data));
 
-          toast.success(verifyPayment.data.message);
-        } catch (error) {
-          console.log(error);
-          toast.error("Payment verification failed");
+          alert("Payment Successful 🎉");
+
+        } catch (err) {
+          console.log("VERIFY ERROR:", err);
+          alert("Verification failed");
         }
       },
     };
 
     const rzp = new window.Razorpay(options);
+
+    rzp.on("payment.failed", (res) => {
+      console.log("FAILED:", res.error);
+      alert(res.error.description || "Payment Failed");
+    });
+
     rzp.open();
 
-  } catch (error) {
-    console.log(error);
-    toast.error("something went wrong while enrolling");
+  } catch (err) {
+    console.log("ORDER ERROR:", err);
+    alert("Order creation failed");
   }
 };
-
   useEffect(() => {
     if (selectedCourse?.lectures?.length > 0) {
       const freeLecture = selectedCourse.lectures.find((l) => l.isPreviewFree);

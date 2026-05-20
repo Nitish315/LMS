@@ -63,7 +63,7 @@ const handleThumbnail = (e) => {
   setBackendImage(file);
   setFrontendImage(URL.createObjectURL(file));
 };
-  const serverUrl = "https://online-lms-xnob.onrender.com";
+  const serverUrl = "http://localhost:8000";
 
   const getCourseById = async () => {
     try {

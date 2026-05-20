@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 
-export const serverUrl = "https://online-lms-xnob.onrender.com"
+export const serverUrl = "http://localhost:8000"
 
 import {ToastContainer} from "react-toastify"
 import getCurrentUser from './customHooks/getCurrentUser'

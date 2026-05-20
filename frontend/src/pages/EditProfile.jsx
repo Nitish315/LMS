@@ -16,7 +16,7 @@ const EditProfile = () => {
      const handleNavigate = () => {
     navigate("/profile");
   };
-     const serverUrl = "https://online-lms-xnob.onrender.com";
+     const serverUrl = "http://localhost:8000";
   const [name,setName]=useState(userData?.name||"");
   const[description,setDescription]=useState(userData?.description||"");
 
