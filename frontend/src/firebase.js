@@ -25,12 +25,10 @@ const firebaseConfig = {
   storageBucket: "lmsproject-8a57c.appspot.com",
   messagingSenderId: "211042481273",
   appId: "1:211042481273:web:d03a82e54394fc76e150a8",
-  measurementId: "G-S6G3WH9YJS"
+  measurementId: "G-S6G3WH9YJS",
 };
 
-const app = getApps().length === 0
-  ? initializeApp(firebaseConfig)
-  : getApp();
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
