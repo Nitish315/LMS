@@ -9,7 +9,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const serverUrl = "http://localhost:8000";
+  const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

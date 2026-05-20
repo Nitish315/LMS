@@ -10,7 +10,7 @@ import {
 
 const useGetCourseReviews = (courseId) => {
   const dispatch = useDispatch();
-  const serverUrl = "http://localhost:8000";
+  const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
 
   useEffect(() => {
   

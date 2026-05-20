@@ -10,7 +10,7 @@ const CreateCourses = () => {
   const navigate = useNavigate();
 
   //  Backend URL (simple method)
-  // const serverUrl = "http://localhost:8000";
+  // const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
 
   const [title, setTitle] = React.useState("");
   const [category, setCategory] = React.useState("");

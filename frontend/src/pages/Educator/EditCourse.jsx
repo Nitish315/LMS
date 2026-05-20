@@ -63,7 +63,7 @@ const handleThumbnail = (e) => {
   setBackendImage(file);
   setFrontendImage(URL.createObjectURL(file));
 };
-  const serverUrl = "http://localhost:8000";
+  const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
 
   const getCourseById = async () => {
     try {
@@ -91,7 +91,7 @@ const handleThumbnail = (e) => {
   selectCourse.thumbnail && selectCourse.thumbnail.trim() !== ""
     ? selectCourse.thumbnail.startsWith("http")
       ? selectCourse.thumbnail
-      : `http://localhost:8000/${selectCourse.thumbnail}`
+      : `http://https://lms-backend-ug9m.onrender.com:8000/${selectCourse.thumbnail}`
     : img
 );
       setIsPublished(selectCourse?.isPublished);

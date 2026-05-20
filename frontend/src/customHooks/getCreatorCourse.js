@@ -13,7 +13,7 @@ const getCreatorCourse = () => {
     const fetchCourses = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/course/getcreator",
+          "http://https://lms-backend-ug9m.onrender.com:8000/api/course/getcreator",
           { withCredentials: true }
         );
 

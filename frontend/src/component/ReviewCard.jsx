@@ -43,7 +43,7 @@ const ReviewCard = ({
             photoUrl && photoUrl.trim() !== ""
               ? photoUrl.startsWith("http")
                 ? photoUrl
-                : `http://localhost:8000/${photoUrl}`
+                : `http://https://lms-backend-ug9m.onrender.com:8000/${photoUrl}`
               : "https://via.placeholder.com/40"
           }
           alt="user"

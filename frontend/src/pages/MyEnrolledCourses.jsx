@@ -39,7 +39,7 @@ const MyEnrolledCourses = () => {
                   course?.thumbnail && course.thumbnail.trim() !== ""
                     ? course.thumbnail.startsWith("http")
                       ? course.thumbnail
-                      : `http://localhost:8000/${course.thumbnail}`
+                      : `http://https://lms-backend-ug9m.onrender.com:8000/${course.thumbnail}`
                     : "https://via.placeholder.com/300x200?text=Course"
                 }
                 onError={(e) => {
