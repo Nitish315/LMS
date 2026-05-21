@@ -78,7 +78,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://your-frontend.vercel.app"
+       "https://lms-flax-gamma.vercel.app"
     ],
     credentials: true,
   })
