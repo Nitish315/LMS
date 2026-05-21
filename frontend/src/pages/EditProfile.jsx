@@ -16,7 +16,7 @@ const EditProfile = () => {
      const handleNavigate = () => {
     navigate("/profile");
   };
-     const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
+     const serverUrl = "https://lms-backend-ug9m.onrender.com";
   const [name,setName]=useState(userData?.name||"");
   const[description,setDescription]=useState(userData?.description||"");
 

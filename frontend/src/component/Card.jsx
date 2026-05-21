@@ -25,7 +25,7 @@ const Card = ({ thumbnail, title, category, price, id, reviews, isEnrolled }) =>
             thumbnail && thumbnail.trim() !== ""
               ? thumbnail.startsWith("http")
                 ? thumbnail
-                : `http://https://lms-backend-ug9m.onrender.com:8000/${thumbnail}`
+                : `https://lms-backend-ug9m.onrender.com/${thumbnail}`
               : img
           }
           onError={(e) => (e.target.src = img)}

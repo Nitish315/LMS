@@ -27,7 +27,7 @@ const ViewCourse = () => {
   const [loading, setLoading] = useState(false);
 
   const { userData } = useSelector((state) => state.user);
-  const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
+  const serverUrl = "https://lms-backend-ug9m.onrender.com";
 
 
   
@@ -112,7 +112,7 @@ const ViewCourse = () => {
 const handleEnroll = async (courseId) => {
   try {
     const res = await axios.post(
-      "http://https://lms-backend-ug9m.onrender.com:8000/api/order/razorpay-order",
+      "https://lms-backend-ug9m.onrender.com/api/order/razorpay-order",
       { courseId },
       { withCredentials: true }
     );
@@ -135,7 +135,7 @@ const handleEnroll = async (courseId) => {
       handler: async (response) => {
         try {
           await axios.post(
-            "http://https://lms-backend-ug9m.onrender.com:8000/api/order/verifyPayment",
+            "https://lms-backend-ug9m.onrender.com/api/order/verifyPayment",
             {
               courseId: courseId,
               razorpay_order_id: response.razorpay_order_id,
@@ -148,7 +148,7 @@ const handleEnroll = async (courseId) => {
           setIsEnrolled(true);
 
           const userRes = await axios.get(
-            "http://https://lms-backend-ug9m.onrender.com:8000/api/user/getcurrentuser",
+            "https://lms-backend-ug9m.onrender.com/api/user/getcurrentuser",
             { withCredentials: true }
           );
 
@@ -266,7 +266,7 @@ const handleEnroll = async (courseId) => {
                 selectedCourse.thumbnail.trim() !== ""
                   ? selectedCourse.thumbnail.startsWith("http")
                     ? selectedCourse.thumbnail
-                    : `http://https://lms-backend-ug9m.onrender.com:8000/${selectedCourse.thumbnail}`
+                    : `https://lms-backend-ug9m.onrender.com/${selectedCourse.thumbnail}`
                   : img
               }
               onError={(e) => (e.target.src = img)} // ✅ fallback if broken
@@ -384,7 +384,7 @@ const handleEnroll = async (courseId) => {
                 <video
                   key={selectedLecture.videoUrl}
                   className="w-full h-full object-contain bg-black"
-                  src={`http://https://lms-backend-ug9m.onrender.com:8000/${selectedLecture.videoUrl}`}
+                  src={`https://lms-backend-ug9m.onrender.com/${selectedLecture.videoUrl}`}
                   controls
                   autoPlay
                   muted

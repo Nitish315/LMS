@@ -9,7 +9,7 @@ import { setLectureData } from "../../redux/LecturesSlice"; // adjust path
 
 
 const EditLecture = () => {
-    const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
+    const serverUrl = "https://lms-backend-ug9m.onrender.com";
 
   const { lectureId } = useParams(); 
   // const { lectureId, courseId } = useParams();

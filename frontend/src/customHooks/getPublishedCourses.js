@@ -10,7 +10,7 @@ const getPublishedCourses = () => {
     const fetchCourses = async () => {
       try {
         const res = await axios.get(
-          "http://https://lms-backend-ug9m.onrender.com:8000/api/course/published",
+          "https://lms-backend-ug9m.onrender.com/api/course/published",
           { withCredentials: true } // 🔥 IMPORTANT
         );
 

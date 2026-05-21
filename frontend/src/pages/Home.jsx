@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
   const fetchPopularCourses = async () => {
     try {
-      const res = await axios.get("http://https://lms-backend-ug9m.onrender.com:8000/api/course/popular");
+      const res = await axios.get("https://lms-backend-ug9m.onrender.com/api/course/popular");
       setPopularCourses(res.data.data);
     } catch (error) {
       console.log(error);

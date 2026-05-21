@@ -14,7 +14,7 @@ const SearchWithAi = () => {
   const [recommendation, setRecommendation] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
+  const serverUrl = "https://lms-backend-ug9m.onrender.com";
 
   // 🎤 Speech API
   const SpeechRecognition =

@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 
-export const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000"
+export const serverUrl = "https://lms-backend-ug9m.onrender.com"
 
 import {ToastContainer} from "react-toastify"
 import getCurrentUser from './customHooks/getCurrentUser'

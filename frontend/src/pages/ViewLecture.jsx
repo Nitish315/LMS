@@ -7,7 +7,7 @@ import { IoIosPlayCircle } from "react-icons/io";
 import { setSelectedCourse } from "../redux/courseSlice";
 
 const ViewLecture = () => {
-  const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
+  const serverUrl = "https://lms-backend-ug9m.onrender.com";
   const { courseId } = useParams();
   const { selectedCourse } = useSelector((state) => state.course);
   const navigate = useNavigate();
@@ -84,7 +84,7 @@ const ViewLecture = () => {
           {selectedLecture?.videoUrl ? (
             <video
               className="w-full h-full object-cover"
-              src={`http://https://lms-backend-ug9m.onrender.com:8000/${selectedLecture?.videoUrl}`}
+              src={`https://lms-backend-ug9m.onrender.com/${selectedLecture?.videoUrl}`}
               controls
             />
           ) : (

@@ -14,7 +14,7 @@ const ReviewPage = () => {
   const { reviewData, loading } = useSelector((state) => state.review);
   const [latestReview, setLatestReview] = useState([]);
 
-  const serverUrl = "http://https://lms-backend-ug9m.onrender.com:8000";
+  const serverUrl = "https://lms-backend-ug9m.onrender.com";
 
   // 🔥 FETCH REVIEWS
   useEffect(() => {

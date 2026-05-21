@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../../utils/firebase';
+// import { auth, provider } from '../firebase';
 
 const Login = () => {
   const [show, setshow] = useState(false)
